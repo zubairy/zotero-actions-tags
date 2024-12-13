@@ -44,6 +44,7 @@ enum ActionOperationTypes {
   "toggle",
   "script",
   "triggerAction",
+  "externalAction",
 }
 
 type ActionShowInMenu =
@@ -197,7 +198,7 @@ async function applyAction(action: ActionData, args: ActionArgs) {
     (Zotero.Items.get(args.itemID || -1) as Zotero.Item | false) || null;
   //  If the item is not found and the operation is not script, early return.
   if (
-    ![ActionOperationTypes.script, ActionOperationTypes.triggerAction].includes(
+    ![ActionOperationTypes.script, ActionOperationTypes.triggerAction, ActionOperationTypes.externalAction].includes(
       action.operation,
     ) &&
     !item
