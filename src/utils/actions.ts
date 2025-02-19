@@ -4,7 +4,7 @@ import { updateHint } from "./hint";
 import { getString } from "./locale";
 import { getPref, setPref } from "./prefs";
 
-const AsyncFunction = Object.getPrototypeOf(async function () { }).constructor;
+const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
 export {
   defaultActions,
@@ -176,14 +176,14 @@ function updateCachedActionKeys() {
     }
     const valueA = String(
       actionA[
-      addon.data.prefs.columns[addon.data.prefs.columnIndex]
-        .dataKey as keyof ActionData
+        addon.data.prefs.columns[addon.data.prefs.columnIndex]
+          .dataKey as keyof ActionData
       ] || "",
     );
     const valueB = String(
       actionB[
-      addon.data.prefs.columns[addon.data.prefs.columnIndex]
-        .dataKey as keyof ActionData
+        addon.data.prefs.columns[addon.data.prefs.columnIndex]
+          .dataKey as keyof ActionData
       ] || "",
     );
 
@@ -339,9 +339,7 @@ function getActions(
 
 function updateAction(action: ActionData, key?: string) {
   if (action.data.includes("getSelectedItems")) {
-    Zotero.getMainWindow()?.alert(
-      getString("message-save-action-warning"),
-    )
+    Zotero.getMainWindow()?.alert(getString("message-save-action-warning"));
   }
   key = key || `${Date.now()}-${Zotero.Users.getLocalUserKey()}`;
   addon.data.actions.map.set(key, action);
